@@ -1,0 +1,7 @@
+env/
+
+home/__pycache__
+
+Powerlook/__pycache__
+
+migrations/__pycache__

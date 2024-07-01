@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="">
+  <img src="static/img.jpg" class="img-fluid" style="height: 90vh; width:100%;" alt="Responsive image">
+</div>
+<h1 class="text-center p-10 m-5" style="background-color: aqua">Our Products</h1>
+<div class="d-flex m-6 pt-10 gap-3 w-100  justify-content-center h-100" >
+  <div class="card " style="width: 25rem;">
+      <div class="card-body">
+        <img src="" alt="">
+        <h5 class="card-title">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  
+    <div class="card" style="width: 25rem;">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 25rem;">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+</div>
+
+<h1 class="text-center p-15 m-3 mt-5" style="background-color: aqua;">Explore Trendy Fashions With Powerlook</h1>
+<p class="text-center mb-5" style="background-color: aqua;">
+  Explore our Trendy Essentials
+</p>
+
+<div class="d-flex justify-content-center  w-100" style="height:50vh">
+  <img src="static\smiddle.jpg" class="img-fluid m-2" alt="Image 1" style="max-width: fit-content;" >
+  <img src="static\smiddle2.jpg" class="img-fluid m-2" alt="Image 2" style="max-width:fit-content;" >
+</div>
+
+<h2 class="text-center" style="margin-top: 20px;">SS24</h2>
+<h5 class="text-center" style="color: aqua;">Grab you summer essentials</h5>
+<div class="d-flex m-6 pt-10 gap-3 w-100 mt-15 justify-content-center h-100" style="margin-top: 15px" >
+  
+
+    {% for data in data  %}
+    <div class="card" style="width: 25rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{data.product_name}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary"><img src="{{data.product_image.url}}" alt="" srcset=""></h6>
+        <p class="card-text">{{data.product.description}}</p>
+        <a href="#" class="card-link">{{data.product_price}}</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+
+      
+    {% endfor %}
+
+ 
+</div>
+
+{{mess}}
+
+{% endblock content %}

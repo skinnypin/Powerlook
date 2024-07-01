@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Track Your Order</h1>
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+          <label for="orderID" class="form-label">Order ID</label>
+          <input type="text" class="form-control" id="orderID" placeholder="Enter your order ID">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+        <button type="submit" class="btn btn-primary">Track Order</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h2>Order Details</h2>
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Product 1</td>
+          <td>2</td>
+          <td>$50</td>
+          <td>Shipped</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Product 2</td>
+          <td>1</td>
+          <td>$30</td>
+          <td>Delivered</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Product 3</td>
+          <td>3</td>
+          <td>$90</td>
+          <td>Processing</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+  
+{% endblock content %}

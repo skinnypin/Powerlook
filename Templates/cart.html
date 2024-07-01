@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Shopping Cart</h1>
+    <div class="cart-container">
+        {% for item in cart_items %}
+        <div class="row mb-3">
+            <div class="col-md-2">
+                <img src="{{ item.order.orderitem.product_image.url }}" class="img-fluid" alt="Product Image">
+            </div>
+            <div class="col-md-4">
+                <h5>{{ item.order.orderitem.product_name }}</h5>
+                <p>{{ item.order.orderitem.product_description }}</p>
+            </div>
+            <div class="col-md-2">
+                <input type="number" class="form-control" value="1" min="1">
+            </div>
+            <div class="col-md-2">
+                <h5>${{ item.order.orderitem.product_price }}</h5>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-danger">Remove</button>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="cart-summary mt-4">
+            <h5>Order Summary</h5>
+            <hr>
+            <p>Subtotal: ${{ total_price }}</p>
+            <p>Tax: ${{ tax }}</p>
+            <h5>Total: ${{ total }}</h5>
+            <button class="btn btn-primary btn-lg btn-block">Proceed to Checkout</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock content %}
