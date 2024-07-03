@@ -20,6 +20,7 @@ from home import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
         path('admin/', admin.site.urls),
     path("" , views.index, name='home'),
@@ -31,6 +32,7 @@ urlpatterns = [
     path("signup", views.signup, name= "signup"),
     path("cart", views.view_cart, name="cart"),
     path("add_cart", views.add_cart, name= "add_cart"),
+    path('remove_from_cart/<str:cart_id>/', views.remove_from_cart, name='remove_from_cart'),
 ]
 
 

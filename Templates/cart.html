@@ -4,7 +4,8 @@
     <h1 class="text-center mb-4">Shopping Cart</h1>
     <div class="cart-container">
         {% for item in cart_items %}
-        <div class="row mb-3">
+        <form class="row mb-3" action="{% url 'remove_from_cart' item.id %}" method = "POST">
+            {% csrf_token %}
             <div class="col-md-2">
                 <img src="{{ item.order.orderitem.product_image.url }}" class="img-fluid" alt="Product Image">
             </div>
@@ -19,9 +20,9 @@
                 <h5>${{ item.order.orderitem.product_price }}</h5>
             </div>
             <div class="col-md-2">
-                <button class="btn btn-danger">Remove</button>
+                <button class="btn btn-danger" type ='submit'>Remove</button>
             </div>
-        </div>
+        </form>
         {% endfor %}
 
         <div class="cart-summary mt-4">

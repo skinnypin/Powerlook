@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from .models import Manproducts, Usermodel , Cart, Orderitem
 from django.contrib.auth.models import User
 from django.contrib import messages
-
+from django.shortcuts import get_object_or_404
 
 #create your views here
 
@@ -12,6 +12,12 @@ def index(request):
     data = Manproducts.objects.all()
     print(data)
     return render(request, "index.html", {"mess": "my name is Dhawal", "data": data})
+
+
+def remove_from_cart(request, cart_id):
+    cart_item = get_object_or_404(Cart, id=cart_id)
+    cart_item.delete()
+    return redirect('view_cart')
 
 
 
@@ -139,6 +145,7 @@ def view_cart(request):
 
 
 def remove_from_cart(request, cart_id):
+    print(cart_id,'------------------------------')
     cart_item = get_object_or_404(Cart, id=cart_id)
     cart_item.delete()
-    return redirect('view_cart')
+    return redirect('cart')
